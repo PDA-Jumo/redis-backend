@@ -87,10 +87,10 @@ async function main() {
 }
 
 // second minute hour day-of-month month day-of-week
-cron.schedule("30 * * * * *", () => {
-  console.log("매 30마다 실행");
-  main();
-});
+// cron.schedule("30 * * * * *", () => {
+//   console.log("매 30마다 실행");
+//   main();
+// });
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
