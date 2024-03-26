@@ -1,6 +1,7 @@
 const {fetchStockPrice_main1, fetchStockPrice_main2, fetchStockPrice_main3, fetchStockPrice_sub1, fetchStockPrice_sub2, fetchStockPrice_sub3, fetchStockPrice_sub4, fetchStockPrice_sub5} = require("./gethoka")
-var XMLHttpRequest = require("xhr2");
 require("dotenv").config(); // 모듈 불러오기
+const publish = require('./redisset')
+
 
 var count_item = 0;
 
@@ -68,6 +69,8 @@ async function fetchStockPricesPeriodically_main1(codes) {
 
         // 변환된 데이터 출력
         console.log(transformedResponse);
+        publish(code,transformedResponse)
+        
         count_item = count_item + 1;
         console.log(count_item);
         //console.log(count_failed);
@@ -133,6 +136,8 @@ async function fetchStockPricesPeriodically_main2(codes) {
 
         // 변환된 데이터 출력
         console.log(transformedResponse);
+        //console.log("코드!!!!!!!!!!11", codes);
+        publish(code, transformedResponse)
         count_item = count_item + 1;
         console.log(count_item);
         //console.log(count_failed);
@@ -198,6 +203,7 @@ async function fetchStockPricesPeriodically_main3(codes) {
 
         // 변환된 데이터 출력
         console.log(transformedResponse);
+        publish(code, transformedResponse)
         count_item = count_item + 1;
         console.log(count_item);
         //console.log(count_failed);
@@ -263,6 +269,7 @@ async function fetchStockPricesPeriodically_sub1(codes) {
 
         // 변환된 데이터 출력
         console.log(transformedResponse);
+        publish(code, transformedResponse)
         count_item = count_item + 1;
         console.log(count_item);
         //console.log(count_failed);
@@ -328,6 +335,7 @@ async function fetchStockPricesPeriodically_sub2(codes) {
 
         // 변환된 데이터 출력
         console.log(transformedResponse);
+        publish(code, transformedResponse)
         count_item = count_item + 1;
         console.log(count_item);
         //console.log(count_failed);
@@ -393,6 +401,7 @@ async function fetchStockPricesPeriodically_sub3(codes) {
 
         // 변환된 데이터 출력
         console.log(transformedResponse);
+        publish(code, transformedResponse)
         count_item = count_item + 1;
         console.log(count_item);
         //console.log(count_failed);
@@ -458,6 +467,7 @@ async function fetchStockPricesPeriodically_sub4(codes) {
 
         // 변환된 데이터 출력
         console.log(transformedResponse);
+        publish(code, transformedResponse)
         count_item = count_item + 1;
         console.log(count_item);
         //console.log(count_failed);
@@ -523,6 +533,7 @@ async function fetchStockPricesPeriodically_sub5(codes) {
 
         // 변환된 데이터 출력
         console.log(transformedResponse);
+        publish(code, transformedResponse)
         count_item = count_item + 1;
         console.log(count_item);
         //console.log(count_failed);
