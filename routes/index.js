@@ -133,10 +133,10 @@ async function main() {
         fetchStockPricesPeriodically_main2(kospi200Codes, AUTHORIZATION_R[1]);
         fetchStockPricesPeriodically_main3(kospi200Codes, AUTHORIZATION_R[2]);
         fetchStockPricesPeriodically_sub1(kosdaq200, AUTHORIZATION_F[0]);
-        fetchStockPricesPeriodically_sub2(kospi200Codes, AUTHORIZATION_F[1]);
-        fetchStockPricesPeriodically_sub3(kospi200Codes, AUTHORIZATION_F[2]);
-        fetchStockPricesPeriodically_sub4(kospi200Codes, AUTHORIZATION_F[3]);
-        fetchStockPricesPeriodically_sub5(kospi200Codes, AUTHORIZATION_F[4]);
+        fetchStockPricesPeriodically_sub2(kosdaq200, AUTHORIZATION_F[1]);
+        fetchStockPricesPeriodically_sub3(kosdaq200, AUTHORIZATION_F[2]);
+        fetchStockPricesPeriodically_sub4(kosdaq200, AUTHORIZATION_F[3]);
+        fetchStockPricesPeriodically_sub5(kosdaq200, AUTHORIZATION_F[4]);
       });
     });
   });
