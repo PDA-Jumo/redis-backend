@@ -1,4 +1,4 @@
-const publisher = require('./redis')
+const publisher = require("./redis");
 
 // 데이터 저장 및 변경 사항 알림
 function publish(stockCode, stockData){
@@ -6,7 +6,7 @@ function publish(stockCode, stockData){
   //데이터 저장(set)
   publisher.set(stockCode, JSON.stringify(stockData), (err, reply) => {
     if (err) {
-      console.error('Error setting value in Redis:', err);
+      console.error("Error setting value in Redis:", err);
       return;
     }
     console.log('Set data reply:', reply);
@@ -22,9 +22,26 @@ function publish(stockCode, stockData){
     });
   });
   
-
 }
 
-
 module.exports = publish;
-  
+
+/*
+Server: Publisher
+const publisher = redis.createClient({host: ~~, no_ready_check: true})
+
+publisher.publish("products", JSON.stringify(product))
+
+Client: Subscriber
+
+const redis = require('redis')
+const subscriber = redis.createClient({host: ~, no_ready_check: true})
+const products = [];
+
+subscriber.on("message", (channel, message) => {
+  products.push(JSON.parse(message));
+})
+// products라는 key와 그에 대한 값을 기다림
+// 값이 바뀌면 Client에서 받음
+subscriber.subscribe("products");
+*/

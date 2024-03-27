@@ -1,7 +1,15 @@
-const {fetchStockPrice_main1, fetchStockPrice_main2, fetchStockPrice_main3, fetchStockPrice_sub1, fetchStockPrice_sub2, fetchStockPrice_sub3, fetchStockPrice_sub4, fetchStockPrice_sub5} = require("./gethoka")
+const {
+  fetchStockPrice_main1,
+  fetchStockPrice_main2,
+  fetchStockPrice_main3,
+  fetchStockPrice_sub1,
+  fetchStockPrice_sub2,
+  fetchStockPrice_sub3,
+  fetchStockPrice_sub4,
+  fetchStockPrice_sub5,
+} = require("./gethoka");
 require("dotenv").config(); // 모듈 불러오기
-const publish = require('./redisset')
-
+const publish = require("./redisset");
 
 var count_item = 0;
 
@@ -16,12 +24,13 @@ var count_item = 0;
 // 실패: 10초 동안 3개
 
 // 실전계좌: 1초당 20 종목
-async function fetchStockPricesPeriodically_main1(codes) {
+async function fetchStockPricesPeriodically_main1(codes, AUTHORIZATION) {
   const interval = 30; // milliseconds
+  console.log("실투1", AUTHORIZATION);
   while (true) {
     for (const code of codes) {
       try {
-        const response = await fetchStockPrice_main1(code);
+        const response = await fetchStockPrice_main1(code, AUTHORIZATION);
         // 필요한 JSON 형식으로 변환
         const transformedResponse = {
           func: "메인1 함수",
@@ -69,8 +78,8 @@ async function fetchStockPricesPeriodically_main1(codes) {
 
         // 변환된 데이터 출력
         console.log(transformedResponse);
-        publish(code,transformedResponse)
-        
+        publish(code, transformedResponse);
+
         count_item = count_item + 1;
         console.log(count_item);
         //console.log(count_failed);
@@ -83,12 +92,13 @@ async function fetchStockPricesPeriodically_main1(codes) {
 }
 
 // 실전계좌: 1초당 20 종목
-async function fetchStockPricesPeriodically_main2(codes) {
+async function fetchStockPricesPeriodically_main2(codes, AUTHORIZATION) {
   const interval = 30; // milliseconds
+  console.log("실투2", AUTHORIZATION);
   while (true) {
     for (const code of codes) {
       try {
-        const response = await fetchStockPrice_main2(code);
+        const response = await fetchStockPrice_main2(code, AUTHORIZATION);
         // 필요한 JSON 형식으로 변환
         const transformedResponse = {
           func: "메인2 함수",
@@ -137,7 +147,7 @@ async function fetchStockPricesPeriodically_main2(codes) {
         // 변환된 데이터 출력
         console.log(transformedResponse);
         //console.log("코드!!!!!!!!!!11", codes);
-        publish(code, transformedResponse)
+        publish(code, transformedResponse);
         count_item = count_item + 1;
         console.log(count_item);
         //console.log(count_failed);
@@ -150,12 +160,13 @@ async function fetchStockPricesPeriodically_main2(codes) {
 }
 
 // 실전계좌: 1초당 20 종목
-async function fetchStockPricesPeriodically_main3(codes) {
+async function fetchStockPricesPeriodically_main3(codes, AUTHORIZATION) {
   const interval = 30; // milliseconds
+  console.log("실투3", AUTHORIZATION);
   while (true) {
     for (const code of codes) {
       try {
-        const response = await fetchStockPrice_main3(code);
+        const response = await fetchStockPrice_main3(code, AUTHORIZATION);
         // 필요한 JSON 형식으로 변환
         const transformedResponse = {
           func: "메인3 함수",
@@ -203,7 +214,7 @@ async function fetchStockPricesPeriodically_main3(codes) {
 
         // 변환된 데이터 출력
         console.log(transformedResponse);
-        publish(code, transformedResponse)
+        publish(code, transformedResponse);
         count_item = count_item + 1;
         console.log(count_item);
         //console.log(count_failed);
@@ -216,12 +227,13 @@ async function fetchStockPricesPeriodically_main3(codes) {
 }
 
 // 모의계좌 1: 1초당 5종목
-async function fetchStockPricesPeriodically_sub1(codes) {
+async function fetchStockPricesPeriodically_sub1(codes, AUTHORIZATION) {
   const interval = 160; // milliseconds
+  console.log("모의1", AUTHORIZATION);
   while (true) {
     for (const code of codes) {
       try {
-        const response = await fetchStockPrice_sub1(code);
+        const response = await fetchStockPrice_sub1(code, AUTHORIZATION);
         // 필요한 JSON 형식으로 변환
         const transformedResponse = {
           func: "서브1 함수",
@@ -269,7 +281,7 @@ async function fetchStockPricesPeriodically_sub1(codes) {
 
         // 변환된 데이터 출력
         console.log(transformedResponse);
-        publish(code, transformedResponse)
+        publish(code, transformedResponse);
         count_item = count_item + 1;
         console.log(count_item);
         //console.log(count_failed);
@@ -282,12 +294,13 @@ async function fetchStockPricesPeriodically_sub1(codes) {
 }
 
 // 모의계좌 1: 1초당 5종목
-async function fetchStockPricesPeriodically_sub2(codes) {
+async function fetchStockPricesPeriodically_sub2(codes, AUTHORIZATION) {
   const interval = 160; // milliseconds
+  console.log("모의2", AUTHORIZATION);
   while (true) {
     for (const code of codes) {
       try {
-        const response = await fetchStockPrice_sub2(code);
+        const response = await fetchStockPrice_sub2(code, AUTHORIZATION);
         // 필요한 JSON 형식으로 변환
         const transformedResponse = {
           func: "서브2 함수",
@@ -335,7 +348,7 @@ async function fetchStockPricesPeriodically_sub2(codes) {
 
         // 변환된 데이터 출력
         console.log(transformedResponse);
-        publish(code, transformedResponse)
+        publish(code, transformedResponse);
         count_item = count_item + 1;
         console.log(count_item);
         //console.log(count_failed);
@@ -348,12 +361,13 @@ async function fetchStockPricesPeriodically_sub2(codes) {
 }
 
 // 모의계좌 1: 1초당 5종목
-async function fetchStockPricesPeriodically_sub3(codes) {
+async function fetchStockPricesPeriodically_sub3(codes, AUTHORIZATION) {
   const interval = 160; // milliseconds
+  console.log("모의3", AUTHORIZATION);
   while (true) {
     for (const code of codes) {
       try {
-        const response = await fetchStockPrice_sub3(code);
+        const response = await fetchStockPrice_sub3(code, AUTHORIZATION);
         // 필요한 JSON 형식으로 변환
         const transformedResponse = {
           func: "서브3 함수",
@@ -401,7 +415,7 @@ async function fetchStockPricesPeriodically_sub3(codes) {
 
         // 변환된 데이터 출력
         console.log(transformedResponse);
-        publish(code, transformedResponse)
+        publish(code, transformedResponse);
         count_item = count_item + 1;
         console.log(count_item);
         //console.log(count_failed);
@@ -414,12 +428,13 @@ async function fetchStockPricesPeriodically_sub3(codes) {
 }
 
 // 모의계좌 1: 1초당 5종목
-async function fetchStockPricesPeriodically_sub4(codes) {
+async function fetchStockPricesPeriodically_sub4(codes, AUTHORIZATION) {
   const interval = 160; // milliseconds
+  console.log("모의4", AUTHORIZATION);
   while (true) {
     for (const code of codes) {
       try {
-        const response = await fetchStockPrice_sub4(code);
+        const response = await fetchStockPrice_sub4(code, AUTHORIZATION);
         // 필요한 JSON 형식으로 변환
         const transformedResponse = {
           func: "서브4 함수",
@@ -467,7 +482,7 @@ async function fetchStockPricesPeriodically_sub4(codes) {
 
         // 변환된 데이터 출력
         console.log(transformedResponse);
-        publish(code, transformedResponse)
+        publish(code, transformedResponse);
         count_item = count_item + 1;
         console.log(count_item);
         //console.log(count_failed);
@@ -480,12 +495,13 @@ async function fetchStockPricesPeriodically_sub4(codes) {
 }
 
 // 모의계좌 1: 1초당 5종목
-async function fetchStockPricesPeriodically_sub5(codes) {
+async function fetchStockPricesPeriodically_sub5(codes, AUTHORIZATION) {
   const interval = 160; // milliseconds
+  console.log("모의5", AUTHORIZATION);
   while (true) {
     for (const code of codes) {
       try {
-        const response = await fetchStockPrice_sub5(code);
+        const response = await fetchStockPrice_sub5(code, AUTHORIZATION);
         // 필요한 JSON 형식으로 변환
         const transformedResponse = {
           func: "서브5 함수",
@@ -533,7 +549,7 @@ async function fetchStockPricesPeriodically_sub5(codes) {
 
         // 변환된 데이터 출력
         console.log(transformedResponse);
-        publish(code, transformedResponse)
+        publish(code, transformedResponse);
         count_item = count_item + 1;
         console.log(count_item);
         //console.log(count_failed);
@@ -546,13 +562,12 @@ async function fetchStockPricesPeriodically_sub5(codes) {
 }
 
 module.exports = {
-    fetchStockPricesPeriodically_main1,
-    fetchStockPricesPeriodically_main2,
-    fetchStockPricesPeriodically_main3,
-    fetchStockPricesPeriodically_sub1,
-    fetchStockPricesPeriodically_sub2,
-    fetchStockPricesPeriodically_sub3,
-    fetchStockPricesPeriodically_sub4,
-    fetchStockPricesPeriodically_sub5
-
-  };
+  fetchStockPricesPeriodically_main1,
+  fetchStockPricesPeriodically_main2,
+  fetchStockPricesPeriodically_main3,
+  fetchStockPricesPeriodically_sub1,
+  fetchStockPricesPeriodically_sub2,
+  fetchStockPricesPeriodically_sub3,
+  fetchStockPricesPeriodically_sub4,
+  fetchStockPricesPeriodically_sub5,
+};
