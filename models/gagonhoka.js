@@ -249,7 +249,6 @@ async function fetchStockPricesPeriodically_main3(codes, AUTHORIZATION) {
         };
 
         // 변환된 데이터 출력
-        //console.log(transformedResponse);
         publish(code, transformedResponse);
         count_item = count_item + 1;
         console.log(count_item);
