@@ -64,8 +64,20 @@ async function fetchStockPricesPeriodically_main1(codes, AUTHORIZATION) {
               response.output1.bidp_rsqn4,
               response.output1.bidp_rsqn5,
             ],
-            total_askp_rsqn: response.output1.total_askp_rsqn,
-            total_bidp_rsqn: response.output1.total_bidp_rsqn,
+            total_askp_rsqn:
+              parseInt(response.output1.total_askp_rsqn) -
+              (parseInt(response.output1.askp_rsqn6) +
+                parseInt(response.output1.askp_rsqn7) +
+                parseInt(response.output1.askp_rsqn8) +
+                parseInt(response.output1.askp_rsqn9) +
+                parseInt(response.output1.askp_rsqn10)),
+            total_bidp_rsqn:
+              parseInt(response.output1.total_bidp_rsqn) -
+              (parseInt(response.output1.bidp_rsqn6) +
+                parseInt(response.output1.bidp_rsqn7) +
+                parseInt(response.output1.bidp_rsqn8) +
+                parseInt(response.output1.bidp_rsqn9) +
+                parseInt(response.output1.bidp_rsqn10)),
           },
           output2: {
             stck_prpr: response.output2.stck_prpr,
@@ -132,8 +144,20 @@ async function fetchStockPricesPeriodically_main2(codes, AUTHORIZATION) {
               response.output1.bidp_rsqn4,
               response.output1.bidp_rsqn5,
             ],
-            total_askp_rsqn: response.output1.total_askp_rsqn,
-            total_bidp_rsqn: response.output1.total_bidp_rsqn,
+            total_askp_rsqn:
+              parseInt(response.output1.total_askp_rsqn) -
+              (parseInt(response.output1.askp_rsqn6) +
+                parseInt(response.output1.askp_rsqn7) +
+                parseInt(response.output1.askp_rsqn8) +
+                parseInt(response.output1.askp_rsqn9) +
+                parseInt(response.output1.askp_rsqn10)),
+            total_bidp_rsqn:
+              parseInt(response.output1.total_bidp_rsqn) -
+              (parseInt(response.output1.bidp_rsqn6) +
+                parseInt(response.output1.bidp_rsqn7) +
+                parseInt(response.output1.bidp_rsqn8) +
+                parseInt(response.output1.bidp_rsqn9) +
+                parseInt(response.output1.bidp_rsqn10)),
           },
           output2: {
             stck_prpr: response.output2.stck_prpr,
@@ -200,8 +224,20 @@ async function fetchStockPricesPeriodically_main3(codes, AUTHORIZATION) {
               response.output1.bidp_rsqn4,
               response.output1.bidp_rsqn5,
             ],
-            total_askp_rsqn: response.output1.total_askp_rsqn,
-            total_bidp_rsqn: response.output1.total_bidp_rsqn,
+            total_askp_rsqn:
+              parseInt(response.output1.total_askp_rsqn) -
+              (parseInt(response.output1.askp_rsqn6) +
+                parseInt(response.output1.askp_rsqn7) +
+                parseInt(response.output1.askp_rsqn8) +
+                parseInt(response.output1.askp_rsqn9) +
+                parseInt(response.output1.askp_rsqn10)),
+            total_bidp_rsqn:
+              parseInt(response.output1.total_bidp_rsqn) -
+              (parseInt(response.output1.bidp_rsqn6) +
+                parseInt(response.output1.bidp_rsqn7) +
+                parseInt(response.output1.bidp_rsqn8) +
+                parseInt(response.output1.bidp_rsqn9) +
+                parseInt(response.output1.bidp_rsqn10)),
           },
           output2: {
             stck_prpr: response.output2.stck_prpr,
@@ -267,8 +303,20 @@ async function fetchStockPricesPeriodically_sub1(codes, AUTHORIZATION) {
               response.output1.bidp_rsqn4,
               response.output1.bidp_rsqn5,
             ],
-            total_askp_rsqn: response.output1.total_askp_rsqn,
-            total_bidp_rsqn: response.output1.total_bidp_rsqn,
+            total_askp_rsqn:
+              parseInt(response.output1.total_askp_rsqn) -
+              (parseInt(response.output1.askp_rsqn6) +
+                parseInt(response.output1.askp_rsqn7) +
+                parseInt(response.output1.askp_rsqn8) +
+                parseInt(response.output1.askp_rsqn9) +
+                parseInt(response.output1.askp_rsqn10)),
+            total_bidp_rsqn:
+              parseInt(response.output1.total_bidp_rsqn) -
+              (parseInt(response.output1.bidp_rsqn6) +
+                parseInt(response.output1.bidp_rsqn7) +
+                parseInt(response.output1.bidp_rsqn8) +
+                parseInt(response.output1.bidp_rsqn9) +
+                parseInt(response.output1.bidp_rsqn10)),
           },
           output2: {
             stck_prpr: response.output2.stck_prpr,
@@ -334,8 +382,20 @@ async function fetchStockPricesPeriodically_sub2(codes, AUTHORIZATION) {
               response.output1.bidp_rsqn4,
               response.output1.bidp_rsqn5,
             ],
-            total_askp_rsqn: response.output1.total_askp_rsqn,
-            total_bidp_rsqn: response.output1.total_bidp_rsqn,
+            total_askp_rsqn:
+              parseInt(response.output1.total_askp_rsqn) -
+              (parseInt(response.output1.askp_rsqn6) +
+                parseInt(response.output1.askp_rsqn7) +
+                parseInt(response.output1.askp_rsqn8) +
+                parseInt(response.output1.askp_rsqn9) +
+                parseInt(response.output1.askp_rsqn10)),
+            total_bidp_rsqn:
+              parseInt(response.output1.total_bidp_rsqn) -
+              (parseInt(response.output1.bidp_rsqn6) +
+                parseInt(response.output1.bidp_rsqn7) +
+                parseInt(response.output1.bidp_rsqn8) +
+                parseInt(response.output1.bidp_rsqn9) +
+                parseInt(response.output1.bidp_rsqn10)),
           },
           output2: {
             stck_prpr: response.output2.stck_prpr,
@@ -401,8 +461,20 @@ async function fetchStockPricesPeriodically_sub3(codes, AUTHORIZATION) {
               response.output1.bidp_rsqn4,
               response.output1.bidp_rsqn5,
             ],
-            total_askp_rsqn: response.output1.total_askp_rsqn,
-            total_bidp_rsqn: response.output1.total_bidp_rsqn,
+            total_askp_rsqn:
+              parseInt(response.output1.total_askp_rsqn) -
+              (parseInt(response.output1.askp_rsqn6) +
+                parseInt(response.output1.askp_rsqn7) +
+                parseInt(response.output1.askp_rsqn8) +
+                parseInt(response.output1.askp_rsqn9) +
+                parseInt(response.output1.askp_rsqn10)),
+            total_bidp_rsqn:
+              parseInt(response.output1.total_bidp_rsqn) -
+              (parseInt(response.output1.bidp_rsqn6) +
+                parseInt(response.output1.bidp_rsqn7) +
+                parseInt(response.output1.bidp_rsqn8) +
+                parseInt(response.output1.bidp_rsqn9) +
+                parseInt(response.output1.bidp_rsqn10)),
           },
           output2: {
             stck_prpr: response.output2.stck_prpr,
@@ -468,8 +540,20 @@ async function fetchStockPricesPeriodically_sub4(codes, AUTHORIZATION) {
               response.output1.bidp_rsqn4,
               response.output1.bidp_rsqn5,
             ],
-            total_askp_rsqn: response.output1.total_askp_rsqn,
-            total_bidp_rsqn: response.output1.total_bidp_rsqn,
+            total_askp_rsqn:
+              parseInt(response.output1.total_askp_rsqn) -
+              (parseInt(response.output1.askp_rsqn6) +
+                parseInt(response.output1.askp_rsqn7) +
+                parseInt(response.output1.askp_rsqn8) +
+                parseInt(response.output1.askp_rsqn9) +
+                parseInt(response.output1.askp_rsqn10)),
+            total_bidp_rsqn:
+              parseInt(response.output1.total_bidp_rsqn) -
+              (parseInt(response.output1.bidp_rsqn6) +
+                parseInt(response.output1.bidp_rsqn7) +
+                parseInt(response.output1.bidp_rsqn8) +
+                parseInt(response.output1.bidp_rsqn9) +
+                parseInt(response.output1.bidp_rsqn10)),
           },
           output2: {
             stck_prpr: response.output2.stck_prpr,
@@ -535,8 +619,20 @@ async function fetchStockPricesPeriodically_sub5(codes, AUTHORIZATION) {
               response.output1.bidp_rsqn4,
               response.output1.bidp_rsqn5,
             ],
-            total_askp_rsqn: response.output1.total_askp_rsqn,
-            total_bidp_rsqn: response.output1.total_bidp_rsqn,
+            total_askp_rsqn:
+              parseInt(response.output1.total_askp_rsqn) -
+              (parseInt(response.output1.askp_rsqn6) +
+                parseInt(response.output1.askp_rsqn7) +
+                parseInt(response.output1.askp_rsqn8) +
+                parseInt(response.output1.askp_rsqn9) +
+                parseInt(response.output1.askp_rsqn10)),
+            total_bidp_rsqn:
+              parseInt(response.output1.total_bidp_rsqn) -
+              (parseInt(response.output1.bidp_rsqn6) +
+                parseInt(response.output1.bidp_rsqn7) +
+                parseInt(response.output1.bidp_rsqn8) +
+                parseInt(response.output1.bidp_rsqn9) +
+                parseInt(response.output1.bidp_rsqn10)),
           },
           output2: {
             stck_prpr: response.output2.stck_prpr,
