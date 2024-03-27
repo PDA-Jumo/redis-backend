@@ -144,7 +144,7 @@ async function main() {
 
 //NOTE: 토큰 발급 제한: 1분
 // second minute hour day-of-month month day-of-week
-cron.schedule("30 * * * * *", () => {
+cron.schedule("59 * * * * *", () => {
   console.log("매 30마다 실행");
   main();
 });
