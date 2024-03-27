@@ -2,7 +2,7 @@ const publisher = require("./redis");
 
 // 데이터 저장 및 변경 사항 알림
 function publish(stockCode, stockData) {
-  const channelName = `stockUpdates:${stockCode}`;
+  const channelName = stockCode;
   publisher.set(stockCode, JSON.stringify(stockData), (err, reply) => {
     if (err) {
       console.error("Error setting value in Redis:", err);
