@@ -1,31 +1,36 @@
 const publisher = require("./redis");
 
 // 데이터 저장 및 변경 사항 알림
+<<<<<<< HEAD
 function publish(stockCode, stockData) {
   const channelName = stockCode;
+=======
+function publish(stockCode, stockData){
+  //데이터 저장(set)
+>>>>>>> 499d7fb1199083cbcf4620d502a2ce45a5100756
   publisher.set(stockCode, JSON.stringify(stockData), (err, reply) => {
     if (err) {
       console.error("Error setting value in Redis:", err);
       return;
     }
-    console.log("Set data reply:", reply);
-    // 데이터 변경 사항을 해당 주식 코드의 채널에 알림
-
-    // publisher가 key: channelName, value: JSON.stringify({})를 발행한다.
-    publisher.publish(
-      channelName,
-      JSON.stringify({ message: "Stock data updated", code: stockCode }),
-      (publishErr, publishReply) => {
-        if (publishErr) {
-          console.error("Error publishing message:", publishErr);
-          return;
-        }
-        console.log("Publish data reply:", publishReply);
-        // 실제 어플리케이션에서는 연결을 유지할 수 있지만, 예제를 위해 연결을 종료합니다.
-        publisher.quit();
+    console.log('Set data reply:', reply);
+    // 데이터 변경 사항을 해당 주식 코드의 채널에 알림(publish)
+    publisher.publish(stockCode, JSON.stringify(stockData), (publishErr, publishReply) => {
+      if (publishErr) {
+        console.error('Error publishing message:', publishErr);
+        return;
       }
-    );
+      console.log('Publish data reply:', publishReply);
+      if (publishReply > 0) {
+        console.log('Message published successfully');
+      } else {
+        console.log('No subscribers for this channel');
+      }
+      //연결을 종료
+      publisher.quit();
+    });
   });
+  
 }
 
 module.exports = publish;
