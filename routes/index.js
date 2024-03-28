@@ -100,10 +100,10 @@ async function fetchAccessToken(dataArray, configUrl, AUTHORIZATION) {
 async function main() {
   // 1. Token을 발급
   // NOTE: TEST시 해제
-  await fetchAccessToken(DATA_R, URL_R, AUTHORIZATION_R);
-  await fetchAccessToken(DATA_F, URL_F, AUTHORIZATION_F);
-  console.log("실투", AUTHORIZATION_R);
-  console.log("모투", AUTHORIZATION_F);
+  // await fetchAccessToken(DATA_R, URL_R, AUTHORIZATION_R);
+  // await fetchAccessToken(DATA_F, URL_F, AUTHORIZATION_F);
+  // console.log("실투", AUTHORIZATION_R);
+  // console.log("모투", AUTHORIZATION_F);
 
   pool.getConnection((err, conn) => {
     if (err) {
@@ -131,48 +131,48 @@ async function main() {
         const kosdaq200 = results.map((item) => item.stock_code);
 
         //NOTE: 실제 코드
-        fetchStockPricesPeriodically_main1(kospi200Codes, AUTHORIZATION_R[0]);
-        fetchStockPricesPeriodically_main2(kospi200Codes, AUTHORIZATION_R[1]);
-        fetchStockPricesPeriodically_main3(kospi200Codes, AUTHORIZATION_R[2]);
-        fetchStockPricesPeriodically_sub1(kosdaq200, AUTHORIZATION_F[0]);
-        fetchStockPricesPeriodically_sub2(kosdaq200, AUTHORIZATION_F[1]);
-        fetchStockPricesPeriodically_sub3(kosdaq200, AUTHORIZATION_F[2]);
-        fetchStockPricesPeriodically_sub4(kosdaq200, AUTHORIZATION_F[3]);
-        fetchStockPricesPeriodically_sub5(kosdaq200, AUTHORIZATION_F[4]);
+        // fetchStockPricesPeriodically_main1(kospi200Codes, AUTHORIZATION_R[0]);
+        // fetchStockPricesPeriodically_main2(kospi200Codes, AUTHORIZATION_R[1]);
+        // fetchStockPricesPeriodically_main3(kospi200Codes, AUTHORIZATION_R[2]);
+        // fetchStockPricesPeriodically_sub1(kosdaq200, AUTHORIZATION_F[0]);
+        // fetchStockPricesPeriodically_sub2(kosdaq200, AUTHORIZATION_F[1]);
+        // fetchStockPricesPeriodically_sub3(kosdaq200, AUTHORIZATION_F[2]);
+        // fetchStockPricesPeriodically_sub4(kosdaq200, AUTHORIZATION_F[3]);
+        // fetchStockPricesPeriodically_sub5(kosdaq200, AUTHORIZATION_F[4]);
 
         //NOTE: TEST 코드
-        // fetchStockPricesPeriodically_main1(
-        //   kospi200Codes,
-        //   "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImRjOWVhMGM4LTY3MGYtNGMwMi1iZjJkLTIwMzRjNGU4MjQ3NCIsImlzcyI6InVub2d3IiwiZXhwIjoxNzExNTgxNjkwLCJpYXQiOjE3MTE0OTUyOTAsImp0aSI6IlBTa2RoQ29uVHJxN2txMVRKNXhPS1pCWGh6MTRoa0Z0YjJFUSJ9.UPOvxewIbM3KEuwy8EkKsvndwQA63pMuvP0yLg-9k8RhqzbCWZvGUI9apWWRxZX-VuM5Z5obJPdsgLCXai3q6A"
-        // );
-        // fetchStockPricesPeriodically_main2(
-        //   kospi200Codes,
-        //   "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImM0MzMzYWRkLWQwODYtNDY4NS1hN2I1LTBjYzhkZDMyZGJhZSIsImlzcyI6InVub2d3IiwiZXhwIjoxNzExNTgxNjkwLCJpYXQiOjE3MTE0OTUyOTAsImp0aSI6IlBTa01ITFNlckFyOHhMY0oxRDRjYnp2UUxwVFF6eHRCMktVSSJ9.gH47_zjI4bOxQMx-vElFTDaeaaHygbVBgKefzPaFOohunnSnOs83sDGN33EvR6UgW44G_CIxOSVCNR3eAS3GjA"
-        // );
-        // fetchStockPricesPeriodically_main3(
-        //   kospi200Codes,
-        //   "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjA5Y2JlYWE2LTQyNzQtNGE2MC04NmFiLTI2NDg3OTlmNDBkYyIsImlzcyI6InVub2d3IiwiZXhwIjoxNzExNTgxNjkxLCJpYXQiOjE3MTE0OTUyOTEsImp0aSI6IlBTeDVqNmcyYlNXVVh0QjB5M3R3cElsSTRNUzB5cWhTSUF4QiJ9.TAWI1QiJlTZfc0PauOyy1kawr8RcHuhUIuooTGR2hw9jnro9o9dKF9SFSEA3om2lOhkg4PR_lY918eDRzyouFQ"
-        // );
-        // fetchStockPricesPeriodically_sub1(
-        //   kosdaq200,
-        //   "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjBlYjBlZDJmLTY4OTItNDMyMC1iZDMzLTgxZDQ4MDlkMmJjNiIsImlzcyI6InVub2d3IiwiZXhwIjoxNzExNTgxNjkxLCJpYXQiOjE3MTE0OTUyOTEsImp0aSI6IlBTbkhCbmU2MjdBdlVyU3c2bXl3WlJqYUFjbnNoZ1Z1RTVqNSJ9.3_BWapd1-rfqPJGrryHt4CUZSDpj1vIXO6lKvpF-EV8b--hUfXo82rSn1Hua2FjiAtvRAGnuuMUKQT7bJHowyQ"
-        // );
-        // fetchStockPricesPeriodically_sub2(
-        //   kosdaq200,
-        //   "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImRmNTRkN2RhLTAwY2YtNDY0Yi05NTkxLWUzNTNiNWNiYmFlMCIsImlzcyI6InVub2d3IiwiZXhwIjoxNzExNTgxNjkxLCJpYXQiOjE3MTE0OTUyOTEsImp0aSI6IlBTNU5WS0xyT0cyT25rWm1Wc3B1M2twTUhXOFNjQVhKbEdoaiJ9.i0FyQhmMMeCeiDie8H8K7eZqdVSqknCZK8YsHqa4jUVQm5iBXWb3GG-NOqfFHl20uwVBww-y9dBkmJNt6Ln5YQ"
-        // );
-        // fetchStockPricesPeriodically_sub3(
-        //   kosdaq200,
-        //   "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImQ2MjZkMWY0LTVhMTYtNDYyZC04MGQ5LTc3NzA1MGEwOWZhYSIsImlzcyI6InVub2d3IiwiZXhwIjoxNzExNTgxNjkxLCJpYXQiOjE3MTE0OTUyOTEsImp0aSI6IlBTVUpEWHhROU51ZUpSTGZUaU5HUTlHR0dTMlVYbEVtZ3RSdyJ9.5-Mux4QdaHpixVJOlp3Y_SzKdSz6ELOPxHMmCyVzvyk4AKyyiCjinjGDJm1KYqI0oeoyiaeHuCFmZIdt7yhUVQ"
-        // );
-        // fetchStockPricesPeriodically_sub4(
-        //   kosdaq200,
-        //   "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjViNTM3NGE1LTdkNzMtNDljYS05ZDczLTlkYTJmZTcyMjk2MiIsImlzcyI6InVub2d3IiwiZXhwIjoxNzExNTgxNjkxLCJpYXQiOjE3MTE0OTUyOTEsImp0aSI6IlBTcTZkNHZwUG0yeTNnV3JKam5zQ0RoYlFRRURGeW9WemYxeCJ9.4srLu00giG4BsobiOKiPwr4fu4mM90TXgc8ejbPTKdFl8ItvgWwRS8hGtgLQirgIjuWXyO0kWR-pkL0iuhRwEQ"
-        // );
-        // fetchStockPricesPeriodically_sub5(
-        //   kosdaq200,
-        //   "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjA2Y2IyOGZlLWM5YTEtNDZkZC05NTY4LTkzM2QxYzJkYzNjMiIsImlzcyI6InVub2d3IiwiZXhwIjoxNzExNTgxNjkxLCJpYXQiOjE3MTE0OTUyOTEsImp0aSI6IlBTUEVTTUlzaFJrcVVtZHJzUUpTNGZDN0M3UU9ka3NnUXlkdSJ9.OPmlBb7dFNQWJEY9ntt4ntJJYLgwnCTnYHQKChSUP1CEI7c_rK_NghYM98nK0rwgss2VxAX6vYpUUQrx8SB4og"
-        // );
+        fetchStockPricesPeriodically_main1(
+          kospi200Codes,
+          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImQwZjNkYmViLTBlYWYtNDYwYS1hN2ZhLWJmOGMzYmQ1N2NjYSIsImlzcyI6InVub2d3IiwiZXhwIjoxNzExNjcxMzE0LCJpYXQiOjE3MTE1ODQ5MTQsImp0aSI6IlBTa2RoQ29uVHJxN2txMVRKNXhPS1pCWGh6MTRoa0Z0YjJFUSJ9.pfsAeOa0q7ASE93paYuP3aLmr8QdhA4drbyMr7rGvIp4cdwCuWHbQASinykr9678MvesKzXzmYaUjWeGZoiKDg"
+        );
+        fetchStockPricesPeriodically_main2(
+          kospi200Codes,
+          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6Ijk5Y2Y4NmJiLTY5ZTItNDgxZC1hNzgwLTRjNGNkNzM0ZWJlNSIsImlzcyI6InVub2d3IiwiZXhwIjoxNzExNjcxMzE0LCJpYXQiOjE3MTE1ODQ5MTQsImp0aSI6IlBTa01ITFNlckFyOHhMY0oxRDRjYnp2UUxwVFF6eHRCMktVSSJ9.doetRasCl4Kuvf6axBSu3rTa0IXFTMO0RsySJuM-Uc_KNQFDissNeCDBJQ1OKF4Z2JwiXTrshpa3TWGP0GV3jA"
+        );
+        fetchStockPricesPeriodically_main3(
+          kospi200Codes,
+          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImNiZWZmMzY2LWQwZmQtNGRlZS04YzA2LTYwODdkZDlhYmNjNyIsImlzcyI6InVub2d3IiwiZXhwIjoxNzExNjcxMzE1LCJpYXQiOjE3MTE1ODQ5MTUsImp0aSI6IlBTeDVqNmcyYlNXVVh0QjB5M3R3cElsSTRNUzB5cWhTSUF4QiJ9.C8mYbTbqJEOQcAl7dkJ3ZU-D_R1r0olj_RbH38bcrpGOu4McsSRK-zpz7W5XQPhLIW9-mPU66GTX3kY7qGTzGA"
+        );
+        fetchStockPricesPeriodically_sub1(
+          kosdaq200,
+          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6Ijc3YzFkODY5LWQ2MTctNGRlYS04ZWRiLTNhY2M1ZTI3N2I3NSIsImlzcyI6InVub2d3IiwiZXhwIjoxNzExNjcxMzE1LCJpYXQiOjE3MTE1ODQ5MTUsImp0aSI6IlBTbkhCbmU2MjdBdlVyU3c2bXl3WlJqYUFjbnNoZ1Z1RTVqNSJ9.bWnsQ1-rNJyNUbtw5BKGDXyKSRY2REt7BSB-c1GVNN9pXEiSiVZJvstFt7PKWwqTnoMRZttLNkm_Fkoly4B4rg"
+        );
+        fetchStockPricesPeriodically_sub2(
+          kosdaq200,
+          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjM4NDgxNjFjLTY3YWQtNDM1ZC1iMDIzLWFmZTY0MDljMjE3MyIsImlzcyI6InVub2d3IiwiZXhwIjoxNzExNjcxMzE1LCJpYXQiOjE3MTE1ODQ5MTUsImp0aSI6IlBTNU5WS0xyT0cyT25rWm1Wc3B1M2twTUhXOFNjQVhKbEdoaiJ9.fD2XXnKsy3mOnr2se9qqdVIKuUWuZoJvNpzKkgYvaOb8MEdkOktBvhJ75ALJoF69NeGREEV6sVTW7Evq2mdlrA"
+        );
+        fetchStockPricesPeriodically_sub3(
+          kosdaq200,
+          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjI4ZGFiNWZlLWIzNTctNGFkMi04OTY5LTM0ZjJjYWJhN2I2NSIsImlzcyI6InVub2d3IiwiZXhwIjoxNzExNjcxMzE1LCJpYXQiOjE3MTE1ODQ5MTUsImp0aSI6IlBTVUpEWHhROU51ZUpSTGZUaU5HUTlHR0dTMlVYbEVtZ3RSdyJ9.1VZJd7yqLb0UgqKmDDSAIDAiIGmwwUyIX_jEs4Ky-lJGOi44_7Md9oXwbmIVEYoYX87DuHNYrdrHXDFizGGHuw"
+        );
+        fetchStockPricesPeriodically_sub4(
+          kosdaq200,
+          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImJlNTU0MGFkLTcwOTMtNDBlNi1hNzdhLWZlMTZkMmU1ZTE1NSIsImlzcyI6InVub2d3IiwiZXhwIjoxNzExNjcxMzE1LCJpYXQiOjE3MTE1ODQ5MTUsImp0aSI6IlBTcTZkNHZwUG0yeTNnV3JKam5zQ0RoYlFRRURGeW9WemYxeCJ9.AHqHIPooGh10XsizUL6jjchQRh2RbE4cjjxUgd9-Tk4x8kLhq0ZJiWC1ylNRcv8eI_D2T6MtaA2FYv3tgIqUHg"
+        );
+        fetchStockPricesPeriodically_sub5(
+          kosdaq200,
+          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImU4ZDM2NmUyLWYwM2QtNDBjYy1iOTBkLTcyMTk2MDI4NGM0MyIsImlzcyI6InVub2d3IiwiZXhwIjoxNzExNjcxMzE1LCJpYXQiOjE3MTE1ODQ5MTUsImp0aSI6IlBTUEVTTUlzaFJrcVVtZHJzUUpTNGZDN0M3UU9ka3NnUXlkdSJ9.HWftNTnPwvOISEIQ68f9CHSGXBbdXHxPcMxmhGbMkNkUNUuiQuZLGEAoBM5jqpslNJTe7N9p0I5UlzIfjVVdLw"
+        );
       });
     });
   });

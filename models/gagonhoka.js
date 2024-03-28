@@ -25,7 +25,7 @@ var count_item = 0;
 
 // 실전계좌: 1초당 20 종목
 async function fetchStockPricesPeriodically_main1(codes, AUTHORIZATION) {
-  const interval = 30; // milliseconds
+  const interval = 50; // milliseconds
   console.log("실투1", AUTHORIZATION);
   while (true) {
     for (const code of codes) {
@@ -105,7 +105,7 @@ async function fetchStockPricesPeriodically_main1(codes, AUTHORIZATION) {
 
 // 실전계좌: 1초당 20 종목
 async function fetchStockPricesPeriodically_main2(codes, AUTHORIZATION) {
-  const interval = 30; // milliseconds
+  const interval = 50; // milliseconds
   console.log("실투2", AUTHORIZATION);
   while (true) {
     for (const code of codes) {
@@ -185,7 +185,7 @@ async function fetchStockPricesPeriodically_main2(codes, AUTHORIZATION) {
 
 // 실전계좌: 1초당 20 종목
 async function fetchStockPricesPeriodically_main3(codes, AUTHORIZATION) {
-  const interval = 30; // milliseconds
+  const interval = 50; // milliseconds
   console.log("실투3", AUTHORIZATION);
   while (true) {
     for (const code of codes) {
@@ -263,7 +263,7 @@ async function fetchStockPricesPeriodically_main3(codes, AUTHORIZATION) {
 
 // 모의계좌 1: 1초당 5종목
 async function fetchStockPricesPeriodically_sub1(codes, AUTHORIZATION) {
-  const interval = 160; // milliseconds
+  const interval = 200; // milliseconds
   console.log("모의1", AUTHORIZATION);
   while (true) {
     for (const code of codes) {
@@ -342,7 +342,7 @@ async function fetchStockPricesPeriodically_sub1(codes, AUTHORIZATION) {
 
 // 모의계좌 1: 1초당 5종목
 async function fetchStockPricesPeriodically_sub2(codes, AUTHORIZATION) {
-  const interval = 160; // milliseconds
+  const interval = 200; // milliseconds
   console.log("모의2", AUTHORIZATION);
   while (true) {
     for (const code of codes) {
@@ -421,7 +421,7 @@ async function fetchStockPricesPeriodically_sub2(codes, AUTHORIZATION) {
 
 // 모의계좌 1: 1초당 5종목
 async function fetchStockPricesPeriodically_sub3(codes, AUTHORIZATION) {
-  const interval = 160; // milliseconds
+  const interval = 200; // milliseconds
   console.log("모의3", AUTHORIZATION);
   while (true) {
     for (const code of codes) {
@@ -500,7 +500,7 @@ async function fetchStockPricesPeriodically_sub3(codes, AUTHORIZATION) {
 
 // 모의계좌 1: 1초당 5종목
 async function fetchStockPricesPeriodically_sub4(codes, AUTHORIZATION) {
-  const interval = 160; // milliseconds
+  const interval = 200; // milliseconds
   console.log("모의4", AUTHORIZATION);
   while (true) {
     for (const code of codes) {
@@ -579,7 +579,7 @@ async function fetchStockPricesPeriodically_sub4(codes, AUTHORIZATION) {
 
 // 모의계좌 1: 1초당 5종목
 async function fetchStockPricesPeriodically_sub5(codes, AUTHORIZATION) {
-  const interval = 160; // milliseconds
+  const interval = 200; // milliseconds
   console.log("모의5", AUTHORIZATION);
   while (true) {
     for (const code of codes) {
