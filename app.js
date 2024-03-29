@@ -3,9 +3,12 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+var cron = require("node-cron");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+
+const getToken = require("./routes/token");
 
 var app = express();
 
@@ -14,6 +17,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+cron.schedule("0 0 8 * * *", () => {
+  console.log("매일 8시마다 실행");
+  getToken();
+});
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
