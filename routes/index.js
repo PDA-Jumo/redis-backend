@@ -60,14 +60,16 @@ async function main() {
   // console.log(main1Token);
   // console.log("///////////////////////////////////////////");
 
-  await fetchStockPricesPeriodically_main1(KOSPI_LIST, main1Token.token);
-  await fetchStockPricesPeriodically_main2(KOSPI_LIST, main2Token.token);
-  await fetchStockPricesPeriodically_main3(KOSPI_LIST, main3Token.token);
-  await fetchStockPricesPeriodically_sub1(KOSDAQ_LIST, sub1Token.token);
-  await fetchStockPricesPeriodically_sub2(KOSDAQ_LIST, sub2Token.token);
-  await fetchStockPricesPeriodically_sub3(KOSDAQ_LIST, sub3Token.token);
-  await fetchStockPricesPeriodically_sub4(KOSDAQ_LIST, sub4Token.token);
-  await fetchStockPricesPeriodically_sub5(KOSDAQ_LIST, sub5Token.token);
+  await Promise.all([
+    fetchStockPricesPeriodically_main1(KOSPI_LIST, main1Token.token),
+    fetchStockPricesPeriodically_main2(KOSPI_LIST, main2Token.token),
+    fetchStockPricesPeriodically_main3(KOSPI_LIST, main3Token.token),
+    fetchStockPricesPeriodically_sub1(KOSDAQ_LIST, sub1Token.token),
+    fetchStockPricesPeriodically_sub2(KOSDAQ_LIST, sub2Token.token),
+    fetchStockPricesPeriodically_sub3(KOSDAQ_LIST, sub3Token.token),
+    fetchStockPricesPeriodically_sub4(KOSDAQ_LIST, sub4Token.token),
+    fetchStockPricesPeriodically_sub5(KOSDAQ_LIST, sub5Token.token),
+  ]);
 }
 
 //NOTE: TEST 코드
