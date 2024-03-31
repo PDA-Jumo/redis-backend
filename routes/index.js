@@ -60,16 +60,31 @@ async function main() {
   // console.log(main1Token);
   // console.log("///////////////////////////////////////////");
 
-  await Promise.all([
-    fetchStockPricesPeriodically_main1(KOSPI_LIST, main1Token.token),
-    fetchStockPricesPeriodically_main2(KOSPI_LIST, main2Token.token),
-    fetchStockPricesPeriodically_main3(KOSPI_LIST, main3Token.token),
-    fetchStockPricesPeriodically_sub1(KOSDAQ_LIST, sub1Token.token),
-    fetchStockPricesPeriodically_sub2(KOSDAQ_LIST, sub2Token.token),
-    fetchStockPricesPeriodically_sub3(KOSDAQ_LIST, sub3Token.token),
-    fetchStockPricesPeriodically_sub4(KOSDAQ_LIST, sub4Token.token),
-    fetchStockPricesPeriodically_sub5(KOSDAQ_LIST, sub5Token.token),
-  ]);
+  // KOSPI_LIST를 67, 67, 66개로 나누기
+  // KOSPI는 대략 3.5초에 한번씩 반복
+  const KOSPI_PARTS = [
+    KOSPI_LIST.slice(0, 67),
+    KOSPI_LIST.slice(67, 134),
+    KOSPI_LIST.slice(134),
+  ];
+
+  // KOSDAQ_LIST를 26개씩 5개로 나누기
+  // KOSDAQ는 대략 5초에 한번씩 반복
+  const KOSDAQ_PARTS = [];
+  for (let i = 0; i < KOSDAQ_LIST.length; i += 26) {
+    KOSDAQ_PARTS.push(KOSDAQ_LIST.slice(i, i + 26));
+  }
+
+  // await Promise.all([
+  fetchStockPricesPeriodically_main1(KOSPI_PARTS[0], main1Token.token);
+  fetchStockPricesPeriodically_main2(KOSPI_PARTS[1], main2Token.token);
+  fetchStockPricesPeriodically_main3(KOSPI_PARTS[2], main3Token.token);
+  fetchStockPricesPeriodically_sub1(KOSDAQ_PARTS[0], sub1Token.token);
+  fetchStockPricesPeriodically_sub2(KOSDAQ_PARTS[1], sub2Token.token);
+  fetchStockPricesPeriodically_sub3(KOSDAQ_PARTS[2], sub3Token.token);
+  fetchStockPricesPeriodically_sub4(KOSDAQ_PARTS[3], sub4Token.token);
+  fetchStockPricesPeriodically_sub5(KOSDAQ_PARTS[4], sub5Token.token);
+  // ]);
 }
 
 //NOTE: TEST 코드
