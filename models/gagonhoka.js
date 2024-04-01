@@ -25,7 +25,7 @@ var count_item = 0;
 
 // 실전계좌: 1초당 20 종목
 async function fetchStockPricesPeriodically_main1(codes, AUTHORIZATION) {
-  const interval = 50; // milliseconds
+  const interval = 90; // milliseconds
   console.log("실투1", AUTHORIZATION);
   while (true) {
     for (const code of codes) {
@@ -263,7 +263,7 @@ async function fetchStockPricesPeriodically_main3(codes, AUTHORIZATION) {
 
 // 모의계좌 1: 1초당 5종목
 async function fetchStockPricesPeriodically_sub1(codes, AUTHORIZATION) {
-  const interval = 200; // milliseconds
+  const interval = 220; // milliseconds
   console.log("모의1", AUTHORIZATION);
   while (true) {
     for (const code of codes) {
