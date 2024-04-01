@@ -74,15 +74,23 @@ async function main() {
   for (let i = 0; i < KOSDAQ_LIST.length; i += 26) {
     KOSDAQ_PARTS.push(KOSDAQ_LIST.slice(i, i + 26));
   }
+  console.log(KOSDAQ_PARTS[0]);
+  console.log(KOSDAQ_PARTS[1]);
+  console.log(KOSDAQ_PARTS[2]);
+  console.log(KOSDAQ_PARTS[0]);
+  console.log(KOSDAQ_PARTS[1]);
+  console.log(KOSDAQ_PARTS[2]);
+  console.log(KOSDAQ_PARTS[3]);
+  console.log(KOSDAQ_PARTS[4]);
 
   await Promise.all([
     fetchStockPricesPeriodically_main1(KOSPI_PARTS[0], main1Token.token),
-    fetchStockPricesPeriodically_main2(KOSPI_PARTS[1], main2Token.token),
-    fetchStockPricesPeriodically_main3(KOSPI_PARTS[2], main3Token.token),
-    fetchStockPricesPeriodically_sub1(KOSDAQ_PARTS[0], sub1Token.token),
-    fetchStockPricesPeriodically_sub2(KOSDAQ_PARTS[1], sub2Token.token),
-    fetchStockPricesPeriodically_sub3(KOSDAQ_PARTS[2], sub3Token.token),
-    fetchStockPricesPeriodically_sub4(KOSDAQ_PARTS[3], sub4Token.token),
+    // fetchStockPricesPeriodically_main2(KOSPI_PARTS[1], main2Token.token),
+    // fetchStockPricesPeriodically_main3(KOSPI_PARTS[2], main3Token.token),
+    // fetchStockPricesPeriodically_sub1(KOSDAQ_PARTS[0], sub1Token.token),
+    // fetchStockPricesPeriodically_sub2(KOSDAQ_PARTS[1], sub2Token.token),
+    // fetchStockPricesPeriodically_sub3(KOSDAQ_PARTS[2], sub3Token.token),
+    // fetchStockPricesPeriodically_sub4(KOSDAQ_PARTS[3], sub4Token.token),
     // fetchStockPricesPeriodically_sub5(KOSDAQ_PARTS[4], sub5Token.token);
   ]);
 }
