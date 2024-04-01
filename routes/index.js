@@ -71,13 +71,13 @@ async function main() {
   // KOSDAQ_LIST를 26개씩 5개로 나누기
   // KOSDAQ는 대략 5초에 한번씩 반복
   const KOSDAQ_PARTS = [];
-  for (let i = 0; i < KOSDAQ_LIST.length; i += 200) {
-    KOSDAQ_PARTS.push(KOSDAQ_LIST.slice(i, i + 200));
+  for (let i = 0; i < KOSDAQ_LIST.length; i += 26) {
+    KOSDAQ_PARTS.push(KOSDAQ_LIST.slice(i, i + 26));
   }
 
   // await Promise.all([
   fetchStockPricesPeriodically_main1(KOSPI_PARTS[0], main1Token.token);
-  // fetchStockPricesPeriodically_main2(KOSPI_PARTS[1], main2Token.token);
+  fetchStockPricesPeriodically_main2(KOSPI_PARTS[1], main2Token.token);
   // fetchStockPricesPeriodically_main3(KOSPI_PARTS[2], main3Token.token);
   // fetchStockPricesPeriodically_sub1(KOSDAQ_PARTS[0], sub1Token.token);
   // fetchStockPricesPeriodically_sub2(KOSDAQ_PARTS[1], sub2Token.token);
